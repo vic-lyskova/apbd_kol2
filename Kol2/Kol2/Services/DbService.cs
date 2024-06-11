@@ -64,7 +64,7 @@ public class DbService : IDbService
         {
             for (var i = 0; i < itemsAmount[itemAmount]; i++)
             {
-                
+                var item = await GetItem(itemAmount);
             }
         }
     }

@@ -73,7 +73,7 @@ public class CharactersController : ControllerBase
         {
             return BadRequest($"Character's with id {characterId} max weight was exceeded");
         }
-        
-        _dbService
+
+        return Ok("haven't finished");
     }
 }
