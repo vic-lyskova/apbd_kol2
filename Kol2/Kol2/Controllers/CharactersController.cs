@@ -74,6 +74,8 @@ public class CharactersController : ControllerBase
             return BadRequest($"Character's with id {characterId} max weight was exceeded");
         }
 
-        return Ok("haven't finished");
+        await _dbService.AddItemsToBackPack(items, characterId);
+        
+        return Ok("finished");
     }
 }

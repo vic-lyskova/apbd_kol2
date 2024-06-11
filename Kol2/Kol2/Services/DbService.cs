@@ -62,10 +62,14 @@ public class DbService : IDbService
 
         foreach (var itemAmount in itemsAmount.Keys)
         {
-            for (var i = 0; i < itemsAmount[itemAmount]; i++)
+            await _context.Backpacks.AddAsync(new Backpack()
             {
-                var item = await GetItem(itemAmount);
-            }
+                CharacterId = characterId,
+                ItemId = itemAmount,
+                Amount = itemsAmount[itemAmount]
+            });
         }
+
+        await _context.SaveChangesAsync();
     }
 }
